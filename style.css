@@ -1,0 +1,320 @@
+
+
+
+
+/* Welcome Screen */
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#welcome-content {
+  position: relative;
+  z-index: 1;
+  bottom: 50px;        /* ⬅ Push it 50px from the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#welcome-content h1 {
+  font-size: clamp(1.5rem, 5vw, 3em); /* scales between min and max size */
+  color: white;
+  text-shadow: 0 0 10px #00ffff;
+  margin-bottom: 0px;
+  margin-top: 30vh; /* push from top relative to viewport */
+}
+
+
+#welcome-content button {
+  display: block; 
+  width: clamp(120px, 30vw, 150px); /* scale button width */
+  padding: 10px 0px;
+  margin: 5px 0;  
+  font-size: clamp(1rem, 2.5vw, 1.2em);
+  color: white;
+  background-color: #0a7975;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+#welcome-content button:hover {
+  background-color: #e8d483;
+}
+
+/* #controls-menu {
+  color: white;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+#controls-menu h3 {
+  margin-top: 0;
+  color: #0a7975;
+}
+
+#controls-menu button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #0a7975;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+#controls-menu button:hover {
+  background-color: #e8d483; */
+/* } */
+#controls-menu {
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ffff; /* sci-fi blue glow */
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 400px; /* smaller since we have fewer controls */
+  margin: 20px auto;
+  font-family: 'Orbitron', sans-serif; /* futuristic font */
+}
+
+#controls-menu h3 {
+  color: #e8d483;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two columns */
+  gap: 10px 20px; /* spacing */
+  text-align: left;
+}
+
+.control-category {
+  grid-column: span 2;
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 1px solid #00ffff;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.control-key {
+  color: #e0e0e0;
+}
+
+.control-value {
+  color: #00ffff;
+  text-align: right;
+}
+
+#controls-menu button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: #0a7975;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#controls-menu button:hover {
+  background-color: #e8d483;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+    background-color: #4b2e2e;
+  background: url("ground.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+
+}
+
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+#board {
+  position: relative;
+  width: 80vw;         /* 80% of viewport width */
+  height: 80vw;        /* keep it square */
+  max-width: 500px;    /* don't grow too large */
+  max-height: 500px;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+
+#scoreboard {
+  display: flex;
+  gap: 20px;
+  color: hsl(0, 0%, 3%);
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#scoreboard div {
+  background:#e8d483;
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #0a7975;
+  text-align: center;
+}
+
+#jet {
+  position: absolute;
+  width: 8vw;              /* scale with viewport width */
+  height: 8vw;
+  max-width: 40px;         /* don't grow too big */
+  max-height: 40px;
+  background: url("rocket.png") no-repeat center center;
+  background-size: contain;
+  left: 46%;               /* center for responsive layout */
+  bottom: 2vh;
+}
+
+
+.bullets {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background:#e8d483;
+  left: 0px;
+  bottom: 40px;
+}
+
+.rocks {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url("alien.png") no-repeat center center;
+  background-size: contain;
+  top: 0px;
+}
+
+
+#restart-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 1.5em;
+  background-color: #0a7975;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#restart-btn:hover {
+  background-color: #e8d483;
+}
+
+.flash {
+  animation: flash 0.3s;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #f3e8bc;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #8d8a78;
+  }
+}
+
+
+/* Tablets and smaller */
+@media (max-width: 768px) {
+  #board {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  #controls-menu {
+    width: 90%;
+  }
+
+  #scoreboard {
+    flex-wrap: wrap; /* allow items to wrap */
+    font-size: 1em;
+  }
+}
+html, body {
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+
+/* Phones */
+@media (max-width: 480px) {
+  #welcome-content h1 {
+    font-size: 1.5em;
+  }
+
+  #welcome-content button {
+    width: 80%; /* buttons stretch on small screens */
+    font-size: 1em;
+  }
+
+  #scoreboard {
+    flex-direction: column; /* stack vertically */
+    gap: 10px;
+  }
+  #restart-btn {
+    font-size: 1.5em;
+    padding: 15px 20px;
+    width: 80%;
+  }
+}

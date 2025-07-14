@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Shooter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+      <video autoplay muted loop id="bg-video">
+        <source src="space_video.mp4" type="video/mp4" />
+      </video>
+      <div id="welcome-content">
+        <h1>WELCOME TO SPACE SHOOTER</h1>
+        <button id="play-btn">PLAY</button>
+        <button id="controls-btn">Controls</button>
+        
+        <div id="controls-menu" style="display: none;">
+  <h3>CONTROLS</h3>
+  <div class="controls-grid">
+    <div class="control-category">FLIGHT CONTROLS</div>
+    <div class="control-key">Move Left</div><div class="control-value">⬅️ Left Arrow</div>
+    <div class="control-key">Move Right</div><div class="control-value">➡️ Right Arrow</div>
+
+    <div class="control-category">WEAPONS</div>
+    <div class="control-key">Shoot</div><div class="control-value">⬆️ Up Arrow / Spacebar</div>
+  </div>
+  <button id="close-controls">Close</button>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" style="display: none;">
+     
+
+      <div id="scoreboard">
+        <div id="points">Score: 0</div>
+        <div id="lives">Lives: 3</div>
+        <div id="best-score">Best: 0</div>
+      </div>
+      <div id="board">
+        <div id="jet"></div>
+      </div>
+    </div>
+     
+
+    <!-- Restart Button -->
+    <button id="restart-btn" style="display: none;">RESTART</button>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
